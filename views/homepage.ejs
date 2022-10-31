@@ -1,0 +1,115 @@
+<%- include("header") %> 
+
+<div class = "py-3">
+    <div class="container py-3">
+        <h1>Books</h1>
+    </div>
+
+    <div class="container">
+      <div class="row row-cols-2 row-cols-sm-4 row-cols-md-6 g-6">
+        <% for(var i = 0;i < 6;i++) {%>
+            <div class="col">
+                <div class="card shadow-sm">      
+                  <div class="card-body">
+                    <p class="card-text"><h3>title<h3></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="container py-3">
+        <h1>Movies</h1>
+    </div>
+
+     <div class="container">
+        <div class="row row-cols-2 row-cols-sm-4 row-cols-md-6 g-6">
+          <% for(var i = 0;i < 6;i++) {%>
+              <div class="col">
+                  <div class="card shadow-sm">      
+                    <div class="card-body">
+                      <p class="card-text"><h3>title<h3></p>
+                      <div class="d-flex align-items-center">
+                        <i class="fa-regular fa-star star1"></i>
+                        <i class="fa-regular fa-star star2"></i>
+                        <i class="fa-regular fa-star star3"></i>
+                        <i class="fa-regular fa-star star4"></i>
+                        <i class="fa-regular fa-star star5"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          <% } %>
+        </div>
+      </div>
+
+  </div>
+  <script>
+    $(".star1").hover(
+    function () {
+      $(this).addClass("fas");
+    },
+    function () {
+      $(this).removeClass("fas");
+    }
+  );
+  $(".star2").hover(
+    function () {
+        $(".star1").addClass("fas");
+      $(this).addClass("fas");
+    },
+    function () {
+        $(".star1").removeClass("fas");
+      $(this).removeClass("fas");
+    }
+  );
+  $(".star3").hover(
+    function () {
+        $(".star1").addClass("fas");
+      $(".star2").addClass("fas");
+      $(this).addClass("fas");
+    },
+    function () {
+        $(".star1").removeClass("fas");
+      $(".star2").removeClass("fas");
+      $(this).removeClass("fas");
+    }
+  );
+  $(".star4").hover(
+    function () {
+        $(".star1").addClass("fas");
+      $(".star2").addClass("fas");
+      $(".star3").addClass("fas");
+      $(this).addClass("fas");
+    },
+    function () {
+        $(".star1").removeClass("fas");
+      $(".star2").removeClass("fas");
+      $(".star3").removeClass("fas");
+      $(this).removeClass("fas");
+    }
+  );
+  $(".star5").hover(
+    function () {
+      $(".star1").addClass("fas");
+      $(".star2").addClass("fas");
+      $(".star3").addClass("fas");
+      $(".star4").addClass("fas");
+      $(this).addClass("fas");
+    },
+    function () {
+      $(".star1").removeClass("fas");
+      $(".star2").removeClass("fas");
+      $(".star3").removeClass("fas");
+      $(".star4").removeClass("fas");
+      $(this).removeClass("fas");
+    }
+  );
+  
+  </script>
+<%- include("footer") %> 

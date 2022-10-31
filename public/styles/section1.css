@@ -1,0 +1,51 @@
+.banner-section{
+    padding: 120px 0 700px;
+    height: 700px;
+    background: rgb(2, 2, 2);
+    background-repeat: no-repeat;
+    position: relative;
+    background-position: bottom;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.banner-section .img1 {
+    position: absolute;
+    border-radius: 10px;
+    right: 30%;
+
+}
+
+div.imageanimate1{
+    animation-duration: 12s;
+    animation-name: imageanimate1;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes imageanimate1 {
+    0% { left: 0px; top: 0px;}
+  25% {  left:100px; top:0px;}
+  50% {  left:0px; top:0px;}
+  75% { left:100px; top:0px;}
+  100% { left:0px; top:0px;}
+  }
+
+.banner-section .img2 {
+    right: 10%;
+    opacity: 22%;
+    border-radius: 50%;
+
+}
+
+img.imageanimate2{
+    animation-duration: 7s;
+    animation-name: imageanimate2;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes imageanimate2 {
+  from {opacity:0.5;}
+  to {opacity: 0.0;}
+  }
