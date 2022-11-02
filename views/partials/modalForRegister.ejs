@@ -9,29 +9,27 @@
           </button>
         </div>
 
-        <form action="/register" enctype="multipart/form-data" method="POST">
+        <form action="/register" method="POST">
                
         <div class="modal-body" style="position: relative;">
           
-          
-            <%- include ('messages') %>
-                 
+          <%- include ('./messages') %> 
              <!--username-->
              <div class="form-group">
                <input type="text" class="form-control input-lg" id="username" name="username" placeholder="Enter your name"
-                 required="required" value="<%= typeof username!= 'undefined' ? username : '' %>" />
+                 required="required" />
              </div>
 
              <!--email-->
              <div class="form-group">
                <input type="email" class="form-control input-lg" id="email" name="email" placeholder="Email Address"
-                 required="required" value="<%= typeof email != 'undefined' ? email : '' %>" />
+                 required="required" />
              </div>
 
              <!--password-->
              <div class="form-group">
                <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Create Password"
-                 required="required" value="<%= typeof password != 'undefined' ? password : '' %>" />
+                 required="required"  />
              </div>
 
              <!------------------------------------------>
@@ -43,7 +41,7 @@
           <div class="form-group">
             <label for="gender">Gender</label>
             <select class="form-control" id="gender" name="gender" placeholder="Gender"
-              required="required" value="<%= typeof gender != 'undefined' ? gender :'' %>">
+              required="required" >
               <option>Male</option>
               <option>Female</option>
               <option>Others</option>
@@ -56,7 +54,7 @@
             <label for="age">Age</label>
             <input type="number" class="form-control input-lg" id="age" name="age"
               placeholder="Enter age" required="required" min="10"
-              value="<%= typeof age != 'undefined' ? age : '' %>" />
+               />
           </div>
 
         </div>

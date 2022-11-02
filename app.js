@@ -4,16 +4,24 @@ const { urlencoded } = require("body-parser");
 const flash = require('connect-flash');
 const path= require('path');
 const session = require('express-session');
+const bcrypt = require("bcrypt");
 const passport = require('passport');
+const db = require("./config/dbConfig");
+// Passport Config
+require('./config/passport')(passport);
 
 
 const app = express();
-app.use(bodyParser.urlencoded({extended : true}));
+//setting up template engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+//for getting data from body
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.listen(3000,function(){
-    console.log("Server has started and running ar port 3000");
-})
 
 //Express session middleware
 app.use(
@@ -41,7 +49,17 @@ app.use(function(req, res, next) {
   });
   
 
-app.get("/",function(req,res){
-    res.render("intro",{});
+
+
+app.listen(3000,function(){
+    console.log("Server has started running at port 3000");
 })
+
+
+app.use("/", require('./routes/intro'));
+app.use("/register", require('./routes/register'));
+app.use("/login", require('./routes/login'));
+app.use("/homepage", require('./routes/homepage'));
+app.use("/logout", require('./routes/logout'));
+
 
