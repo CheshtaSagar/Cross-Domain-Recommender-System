@@ -22,7 +22,7 @@ Server starts running at https://localhost:3000
 
 Create a local database with name 'crossdomain' and create a 'user' table in it.
 Add your database connection credentials in .env file.
-Preffered tool- mysql workbench
+Preferred tool- mysql workbench
 
 🛈**SQL queries**🛈
 
