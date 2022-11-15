@@ -1,0 +1,123 @@
+<!--template for intro page-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Mali:wght@500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/home.css" type="text/css">
+</head>
+
+<body style="background-color:rgb(19, 18, 18);" >
+  <%- include ('partials/navbar1') %>
+  
+  
+  <div style="width:250px;  position:fixed; top:12%; right:0;z-index:2" >
+     
+    </div>
+
+    
+    <link rel="stylesheet" href="/styles/section1.css" type="text/css">
+
+
+    <section class="banner-section">
+    
+        <div class="row" style="display: flex;">
+            <div class="col text-center ">
+                <link rel="stylesheet" href="/styles/section1side.css" type="text/css">
+
+                <div class="section1_side">
+                    <div class="row" style="display: flex;">
+                        <div class="col">
+                            
+                        </div>
+                    </div>
+                        <div class="row" style="display: flex;">
+                            <div class="col text-center imageanimate1" >
+                                <img class="img1 col" style="width: fit-content; border-radius: 30%;" src="/images/reader.gif" alt="">
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+
+            <div class="col text-center" >
+                <img class="img2 imageanimate2" height="80%" src="images/1.jpg" alt="">
+            </div>
+        </div >
+    
+    </section>
+
+
+  <!-----Modal for login------------------------------------------------------------------------------------------------------->
+  <div class="modal fade" id="firstTimeModalCenter" tabindex="-1" role="dialog" aria-labelledby="firstTimeModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="box-shadow: 0 5px 11px rgb(208, 230, 11);">
+        <div class="modal-header" style="background-color: #000000; padding-left: 5%; justify-content: center;">
+            <h5 class="modal-title" style="font-family: 'Libre Baskerville', serif; color: cornsilk; font-style: bold;">Login</h5>
+    
+        </div>
+
+        <form action="/login/firstTimeLogin" method="POST">
+               
+        <div class="modal-body" style="position: relative;">
+          
+          <%- include ('partials/messages') %> 
+               <!--email-->
+             <div class="form-group">
+                <input type="email" class="form-control input-lg" id="email" name="email" placeholder="Email Address"
+                  required="required" />
+              </div>
+ 
+              <!--password-->
+              <div class="form-group">
+                <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Enter Password"
+                  required="required" />
+              </div>
+                
+                
+
+        </div>
+        <div class="modal-footer">
+          <div class="form-group text-center" >
+          <button type="submit" class="btn btn-dark font-weight-bold" id="login">Login</button>
+          </div>
+        </div>
+
+    </form>
+      </div>
+    </div>
+</div>
+
+
+
+  
+   
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script>
+    window.onload= function(){
+        $("#firstTimeModalCenter").modal("show");
+    }
+</script>
+</html>

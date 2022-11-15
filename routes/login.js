@@ -17,55 +17,21 @@ router.post("/", (req, res, next) => {
   });
 
 
-/*
-router.post("/", (req, res)=> {
-    const email = req.body.email
-    const password = req.body.password
-    db.getConnection ( async (err, connection)=> {
-     if (err) throw (err)
 
-     console.log("Connection Established");
-     console.log(email);
-     console.log(password);
+//first time login handling
+router.get("/firstTimeLogin", (req, res) => {
+  res.render("firstTimeLogin");
+}); 
 
-
-     const sqlSearch = "SELECT * FROM crossdomain.user WHERE email = ?"
-     const search_query = mysql.format(sqlSearch,[email])
-     await connection.query (search_query, async (err, result) => {
-      connection.release()
-      
-      if (err) throw (err)
-
-      console.log("------> Search Results")
-      console.log(result.length)
-      if (result.length == 0) {
-       console.log("--------> User does not exist")
-       res.sendStatus(404)
-      } 
-      else {
-         const hashedPassword = result[0].password
-         //get the hashedPassword from result
-         console.log(hashedPassword);
-         
-         bcrypt.compare(password, hashedPassword, (err, isMatch) => {     ////user.pass is hashed one store in db
-            if (err) throw err;
-            
-         if (isMatch) {
-            console.log("---------> Login Successful")
-            res.send(`${email} is logged in!`)
-        } 
-        else {
-            console.log("---------> Password Incorrect")
-            res.send("Password incorrect!")
-        } 
-         });
-      }
-    });
-    }) 
-    }) 
-
-
-    */
+//first time login handling
+router.post("/firstTimeLogin", (req, res, next) => {
+ console.log("here");
+  passport.authenticate("local", {
+    successRedirect: "/preferences",
+    failureRedirect: "/",
+    failureFlash: true,
+  })(req, res, next);
+});
 
 
 module.exports = router;

@@ -52,7 +52,7 @@ else
 
             const sqlSearch = "SELECT * FROM crossdomain.user WHERE email = ?"
             const search_query = mysql.format(sqlSearch,[email])
-            const sqlInsert = "INSERT INTO crossdomain.user VALUES (0,?,?,?,?,?)"
+            const sqlInsert = "INSERT INTO crossdomain.user(name, email, password, gender, age) VALUES (?,?,?,?,?)"
             const insert_query = mysql.format(sqlInsert,[name, email, hashedPassword, gender, age])
             // ? will be replaced by values
             // ?? will be replaced by string
@@ -77,8 +77,8 @@ else
                     if (err) throw (err)
                     console.log ("--------> Created new User");
                     console.log(result.insertId);
-                    req.flash("success_msg", "Post deleted!");
-                    res.redirect("/");
+                    req.flash("success_msg", "User registered successfully!");
+                    res.redirect("login/firstTimeLogin");
 
                 })
             }

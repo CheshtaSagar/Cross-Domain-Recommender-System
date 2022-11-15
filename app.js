@@ -61,5 +61,6 @@ app.use("/register", require('./routes/register'));
 app.use("/login", require('./routes/login'));
 app.use("/homepage", require('./routes/homepage'));
 app.use("/logout", require('./routes/logout'));
+app.use("/preferences", require('./routes/preferences'));
 
 
