@@ -4,6 +4,6 @@ exports.isUser = function(req, res, next) {
         next();
     } else {
         req.flash('error_msg', 'Please log in.');
-        res.redirect('/l');
+        res.redirect('/');
     }
 }

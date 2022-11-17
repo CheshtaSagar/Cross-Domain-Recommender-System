@@ -58,6 +58,11 @@ module.exports = function(passport) {
         });
       
       
+        connection.release();
+      })
+      
+    })
+  );
 
       passport.serializeUser(function(user, done) {
         console.log("Serialized user:" + user.email + "  " + user.userId);
@@ -65,19 +70,24 @@ module.exports = function(passport) {
       });
 
       passport.deserializeUser(function(user, done){
+
+        db.getConnection ( async (err, connection)=> {
+          if (err) 
+            throw (err)
+
         console.log('USER ID : ' + user.userId);
         connection.query('SELECT * FROM crossdomain.user WHERE userId = ?', [user.userId], function (err, rows){
             console.log("deserialized user:" + user.email + "  " + rows[0].userId);
             done(err, rows[0]);
+
         });
+
+        connection.release();
+        });
+
+        
     });
 
-    connection.release();
-      
-          
-  });
-
-    })
-
-  )}
+    
+  };
 
