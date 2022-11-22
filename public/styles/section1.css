@@ -25,8 +25,8 @@ div.imageanimate1{
 }
 
 @keyframes imageanimate1 {
-    from {opacity:0.5;}
-  to {opacity: 0.0;}
+    from {opacity:0.8;}
+  to {opacity: 0.2;}
   }
 
 .banner-section .img2 {
@@ -44,6 +44,6 @@ img.imageanimate2{
 }
 
 @keyframes imageanimate2 {
-  from {opacity:0.5;}
-  to {opacity: 0.0;}
+  from {opacity:0.9;}
+  to {opacity: 0.3;}
   }

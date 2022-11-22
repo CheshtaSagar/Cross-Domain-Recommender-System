@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="../styles/homepage.css" type="text/css">
+
+
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+
+            <%movies1.forEach(movie => {%>
+            <div class="swiper-slide" style="border-radius: 20px;">
+
+             
+                <div class="card" style="width: 18rem; box-shadow: 0 10px 20px rgb(90, 6, 168);border-radius: 20px; ">
+                  <img class="card-img-top" src="../images/movie.jpg" alt="Card image cap" style="border-radius: 20px; ">
+                  <div class="card-body" style="border-radius: 20px;">
+                    <h5 class="card-title"  style="text-transform:capitalize;"><%= movie %></h5>
+                    <input data-role="rating" id="<%= movie %>" data-stared-color="yellow" data-on-star-click="rate('<%= movie%>', arguments[0])">
+                    
+                  </div>
+                </div>
+              
+
+
+            </div>
+
+            <%});%>
+    </div>
+    
+  </div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+
+          <%movies2.forEach(movie => {%>
+          <div class="swiper-slide" style="border-radius: 20px;">
+
+           
+              <div class="card" style="width: 18rem; box-shadow: 0 10px 20px rgb(90, 6, 168);border-radius: 20px; ">
+                <img class="card-img-top" src="../images/movie.jpg" alt="Card image cap" style="border-radius: 20px; ">
+                <div class="card-body" style="border-radius: 20px;">
+                  <h5 class="card-title"  style="text-transform:capitalize;"><%= movie %></h5>
+                  <input data-role="rating" id="<%= movie %>" data-stared-color="yellow" data-on-star-click="rate('<%= movie%>', arguments[0])">
+                </div>
+              </div>
+            
+
+
+          </div>
+
+          <%});%>
+  </div>
+  
+</div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 4,
+  centeredSlides: true,
+  spaceBetween: 30,
+  grabCursor: true,
+  loop: true,
+  loopFillGroupWithBlank: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
+</script>
+
+<script>
+  //rating the movie
+    function rate(curMovie, curRating) {
+       
+      
+        console.log("curRating= "+ curRating);   
+        rateMovie(curMovie, curRating, (rating)=>{
+          console.log(rating);
+              });
+            
+      }
+           
+    function rateMovie(movieName, curRating, callback) {
+        var http = new XMLHttpRequest();
+        var url = '/rate/';
+        var params = 'movieName=' + movieName + '&curRating=' + curRating;
+        console.log(url);
+        http.open('POST', url + '?' + params, true);
+        console.log(url);
+        
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            
+        http.onload = function (e) {
+            if (this.status == 200) {
+            console.log('SUCCESS', http.responseText);
+            callback(JSON.parse(http.responseText).rating);
+            }
+        };
+            http.send(null);
+           
+      }
+</script>

@@ -6,8 +6,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-
+  <title>WeRecommend</title>
+  <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4/css/metro-all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Mali:wght@500&display=swap" rel="stylesheet">
@@ -21,123 +21,77 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/home.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Maiden+Orange&family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 
-<body>
+<body style="background-color: black;  overflow-x: hidden;">
   
   <%- include ('partials/navbar') %>
 
-<div class = "container" style="padding-top:10%">
-    <div class="container py-3">
-        <h1>Books</h1>
-    </div>
+  <div class="container container-fluid" style="padding-top:100px;">
 
-    <div class="container">
-      <div class="row row-cols-2 row-cols-sm-4 row-cols-md-6 g-6">
-        <% for(var i = 0;i < 6;i++) {%>
-            <div class="col">
-                <div class="card shadow-sm">      
-                  <div class="card-body">
-                    <p class="card-text"><h3>title<h3></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        <% } %>
+
+    
+      <div style="font-family: 'Libre Baskerville', serif;
+      font-family: 'Maiden Orange', cursive;
+      font-family: 'PT Serif', serif;
+       font-weight: 100; color: rgb(238, 220, 255); text-shadow:  0 5px 5px rgb(32, 32, 32);">
+        <h4>Top Book recommendations for you</h4>
       </div>
-    </div>
+    
 
-    <div class="container py-3">
-        <h1>Movies</h1>
-    </div>
 
-     <div class="container">
-        <div class="row row-cols-2 row-cols-sm-4 row-cols-md-6 g-6">
-          <% for(var i = 0;i < 6;i++) {%>
-              <div class="col">
-                  <div class="card shadow-sm">      
-                    <div class="card-body">
-                      <p class="card-text"><h3>title<h3></p>
-                      <div class="d-flex align-items-center">
-                        <i class="fa-regular fa-star star1"></i>
-                        <i class="fa-regular fa-star star2"></i>
-                        <i class="fa-regular fa-star star3"></i>
-                        <i class="fa-regular fa-star star4"></i>
-                        <i class="fa-regular fa-star star5"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-          <% } %>
-        </div>
+      <div class="row">
+        <%- include ('partials/books') %>
       </div>
 
-  </div>
-  <script>
-    $(".star1").hover(
-    function () {
-      $(this).addClass("fas");
-    },
-    function () {
-      $(this).removeClass("fas");
-    }
-  );
-  $(".star2").hover(
-    function () {
-        $(".star1").addClass("fas");
-      $(this).addClass("fas");
-    },
-    function () {
-        $(".star1").removeClass("fas");
-      $(this).removeClass("fas");
-    }
-  );
-  $(".star3").hover(
-    function () {
-        $(".star1").addClass("fas");
-      $(".star2").addClass("fas");
-      $(this).addClass("fas");
-    },
-    function () {
-        $(".star1").removeClass("fas");
-      $(".star2").removeClass("fas");
-      $(this).removeClass("fas");
-    }
-  );
-  $(".star4").hover(
-    function () {
-        $(".star1").addClass("fas");
-      $(".star2").addClass("fas");
-      $(".star3").addClass("fas");
-      $(this).addClass("fas");
-    },
-    function () {
-        $(".star1").removeClass("fas");
-      $(".star2").removeClass("fas");
-      $(".star3").removeClass("fas");
-      $(this).removeClass("fas");
-    }
-  );
-  $(".star5").hover(
-    function () {
-      $(".star1").addClass("fas");
-      $(".star2").addClass("fas");
-      $(".star3").addClass("fas");
-      $(".star4").addClass("fas");
-      $(this).addClass("fas");
-    },
-    function () {
-      $(".star1").removeClass("fas");
-      $(".star2").removeClass("fas");
-      $(".star3").removeClass("fas");
-      $(".star4").removeClass("fas");
-      $(this).removeClass("fas");
-    }
-  );
+
+    </br>
+    <hr style="width:50%; background-color:rgb(114, 15, 180)">
+    </hr>
+    </br>
+    </br>
+
+    <div style="font-family: 'Libre Baskerville', serif;
+      font-family: 'Maiden Orange', cursive;
+      font-family: 'PT Serif', serif;
+       font-weight: 100; color: rgb(238, 220, 255); text-shadow:  0 5px 5px rgb(32, 32, 32);">
+        <h4>Top Movies recommendations for you</h4>
+      </div>
   
-  </script>
-<%- include("footer") %> 
+    <div class="row">
+      <%- include ('partials/movies') %>
+    </div>
+
+    <!---refresh------------------------------------------------------->
+    <a href=""  onclick="window.location.reload();"><img src="/images/reload.jpg" class="img-fluid" style="
+      border-radius: 50%;
+      /* border: 1px solid black; */
+      height: 50px;
+      width: 50px;
+      box-shadow: 7px 5px 10px rgb(161, 113, 250);
+      position: fixed;
+      bottom: 9px;
+      right: 50px;
+      z-index: 2;
+    " /></a>
+  </div>
+  
+
+
+</br>
+</br>
+  <%- include ('partials/footer') %>
+  <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
+</body>  
+</html>

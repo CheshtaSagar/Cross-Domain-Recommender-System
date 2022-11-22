@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="../styles/homepage.css" type="text/css">
+
+
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+
+            <%books.forEach(book => {%>
+            <div class="swiper-slide" style="border-radius: 20px;">
+
+             
+                <div class="card" style="width: 18rem; box-shadow: 0 10px 20px rgb(90, 6, 168);border-radius: 20px; ">
+                  <img class="card-img-top" src="../images/wikiImage.jpg" alt="Card image cap" style="border-radius: 20px; ">
+                  <div class="card-body" style="border-radius: 5px 5px 20px 20px; background-color: rgb(63 4 149);">
+                    <h5 class="card-title"  style="text-transform:capitalize; color: white;"><%= book %></h5>
+                  </div>
+                </div>
+              
+
+
+            </div>
+
+            <%});%>
+    </div>
+    
+  </div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 4,
+  centeredSlides: true,
+  spaceBetween: 30,
+  grabCursor: true,
+  loop: true,
+  loopFillGroupWithBlank: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
+</script>

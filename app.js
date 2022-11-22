@@ -62,5 +62,6 @@ app.use("/login", require('./routes/login'));
 app.use("/homepage", require('./routes/homepage'));
 app.use("/logout", require('./routes/logout'));
 app.use("/preferences", require('./routes/preferences'));
+app.use("/rate", require('./routes/rate'));
 
 
