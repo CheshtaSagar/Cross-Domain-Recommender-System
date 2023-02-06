@@ -286,7 +286,7 @@ def getGenre(str):
 books['Genre'] = books['Genre'].apply(getGenre)
 books.reset_index(inplace = True, drop= True)
 
-
+s
 # In[28]:
 
 

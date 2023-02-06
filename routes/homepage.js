@@ -22,12 +22,10 @@ router.get('/', findRecommendations);
       var process = spawn('python',["./model/recommender.py",
       req.user.userId] );
       console.log("loading");
-      // Takes stdout data from script which executed
-      // with arguments and send this data to res object
+      
       process.stdout.on('data', function(data) {
           result = data.toString();
-          //console.log(result)
-          //console.log(typeof(result))
+          
           output = result.split(/(\r\n)/);
 
           //console.log(output);

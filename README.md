@@ -1,5 +1,20 @@
 # Cross-Domain-Recommender-System
+
 A book recommender web application which transfers knowledge from movies domain to books domain. 
+
+## About
+The website is based on a collaborative-filtering machine learning model which gives movie recommendations to the users. And as the user rates movies on the platform, the model studies his/ her preferences to give book recommendations to him/her as well.
+
+For more info, click [here](https://docs.google.com/presentation/d/1eQv2JAGd28mAM2pmHieAQdjhJ_MjWBXv/edit?usp=sharing&ouid=107150219065222645744&rtpof=true&sd=true)
+
+![](https://github.com/CheshtaSagar/BeFound/blob/main/2.png?raw=true)
+
+
+## 💻Tech Stack
+- **Frontend** : HTML, CSS and Bootstrap.
+- **Backend**: Node JS, Express
+- **Database** : MySQL
+- **Recommender System** : Python, Scikit-learn, Numpy, Pandas, SciPy
 
 
 ## Installation
@@ -20,28 +35,9 @@ Server starts running at https://localhost:3000
 
 🛈**Note**🛈
 
-Create a local database with name 'crossdomain' and create a 'user' table in it.
+Create a local database with name 'crossdomain' and create a 'user', 'movies' and 'ratings' table in it.
 Add your database connection credentials in .env file.
 Preferred tool- mysql workbench
 
-🛈**SQL queries**🛈
 
-**1.** 
-```bash
-CREATE TABLE `user` (
-  `userId` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(1000) NOT NULL,
-  `gender` varchar(45) NOT NULL,
-  `age` int(11) NOT NULL,
-  PRIMARY KEY (`userId`)
-)
-```
-
-**2.** 
-```bash
-ALTER TABLE `crossdomain`.`user` 
-ADD UNIQUE INDEX `email` (`email` ASC);
-```
 

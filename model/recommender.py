@@ -241,11 +241,11 @@ def findSimilarity(X_List, Y_List):
 #the, finds books of same genres(based on cosine similarity) and recommends top 20 such books
 
 def recommend_movies_and_books(user_id):
-    user_id = user_id - 1
+    
     preds = preds_df.iloc[user_id,:].sort_values(ascending=False)
 
     # Recommendations if user has not rated the movie previously
-    recommendations = [i for i in preds.index if movie_matrix.loc[1,i]==0]
+    recommendations = [i for i in preds.index if movie_matrix.loc[user_id,i]==0]
 
     #Recommend only top 30 items
     final_top_30_movie_recommendations = recommendations[:30]
@@ -253,18 +253,29 @@ def recommend_movies_and_books(user_id):
     
     #creating a list of genres of recommended movies
     genres=[] 
-       
+    #print(all_movies)
+
     for ele in final_top_30_movie_recommendations:
-        genres.append(all_movies[all_movies.eq(ele).any(1)].genre.astype(str))
+        s = all_movies[all_movies.eq(ele).any(1)].genre.astype(str)
+        genres.append(s)
 
     
     
     unique_genres=[]
+    #print("\nhere",genres)
+    
+    #print("\nhere2",unique_genres)
 
     for genre in genres:
+        #print(genre)
         ele=genre.to_numpy()
-        f=ele[0].split('|')
+        #print("\nhere3->",type(ele[0]))
+        f=ele[0].split(',')
+        f[0] = f[0][1:]
+        f[-1]=f[-1][:-1]
         for value in f:
+            value = value[1:]
+            value = value[:-1]
             unique_genres.append(value)
     
     unique_genres = list(dict.fromkeys(unique_genres)) 
@@ -274,13 +285,13 @@ def recommend_movies_and_books(user_id):
     
     
     #finding cosine similarity between the given genre subset with genres of all other books in dataset
-    X_list = np.array(unique_genres)
+    X_List = np.array(unique_genres)
     
     similar_books=[]
     
     for i in range(12840):
-        Y_list = books_new.iloc[i].to_numpy()[1]
-        cosine_of_X_Y = findSimilarity(X_list, Y_list)
+        Y_List = books_new.iloc[i].to_numpy()[1]
+        cosine_of_X_Y = findSimilarity(X_List, Y_List)
         #print(cosine_of_X_Y)
         similar_books.append([books_new.iloc[i].to_numpy()[0],cosine_of_X_Y])
     
