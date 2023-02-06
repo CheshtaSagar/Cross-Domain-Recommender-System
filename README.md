@@ -5,12 +5,28 @@ A book recommender web application which transfers knowledge from movies domain 
 ## About
 The website is based on a collaborative-filtering machine learning model which gives movie recommendations to the users. And as the user rates movies on the platform, the model studies his/ her preferences to give book recommendations to him/her as well.
 
-For more info, click [here](https://docs.google.com/presentation/d/1eQv2JAGd28mAM2pmHieAQdjhJ_MjWBXv/edit?usp=sharing&ouid=107150219065222645744&rtpof=true&sd=true)
 
-![](https://github.com/CheshtaSagar/BeFound/blob/main/2.png?raw=true)
+<details>
+  <summary>📸Preview</summary>  
+  <img
+  src="3.png"
+  alt="Alt text"
+  title="CDRS"
+  style="display: inline-block; margin: 0 auto;">
+  <img
+  src="4.png"
+  alt="Alt text"
+  title="CDRS"
+  style="display: inline-block; margin: 0 auto;">
+  <img
+  src="2.png"
+  alt="Alt text"
+  title="CDRS"
+  style="display: inline-block; margin: 0 auto;">
+</details>
+<br>
 
-
-## 💻Tech Stack
+## Tech Stack
 - **Frontend** : HTML, CSS and Bootstrap.
 - **Backend**: Node JS, Express
 - **Database** : MySQL
@@ -39,5 +55,5 @@ Create a local database with name 'crossdomain' and create a 'user', 'movies' an
 Add your database connection credentials in .env file.
 Preferred tool- mysql workbench
 
-
+🛈For more info, click [here](https://docs.google.com/presentation/d/1eQv2JAGd28mAM2pmHieAQdjhJ_MjWBXv/edit?usp=sharing&ouid=107150219065222645744&rtpof=true&sd=true)
 
